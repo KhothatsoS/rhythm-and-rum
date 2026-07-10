@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import { Instagram, MessageCircle, Mail } from 'lucide-react';
 
-export function Footer() {
+export default function Footer() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'Book Now', path: '/booking' }
+    { name: 'Book Now', path: '/contact' }
   ];
 
   return (
@@ -32,7 +32,7 @@ export function Footer() {
               {navLinks.map((link) => (
                 <li key={link.path}>
                   <Link
-                    to={link.path}
+                    href={link.path}
                     className="text-[#F5F5F5]/70 hover:text-[#C6A75E] transition-colors duration-300"
                     style={{ fontFamily: 'var(--font-sans)' }}
                   >
@@ -58,7 +58,7 @@ export function Footer() {
                 <span>@rhythmandrumco</span>
               </a>
               <a
-                href="https://wa.me/27XXXXXXXXX?text=Hi%20Rhythm%20%26%20Rum%20Co%2C%20I%20would%20like%20to%20book%20an%20event."
+                href="https://wa.me/27781706795?text=Hi%20Rhythm%20%26%20Rum%20Co%2C%20I%20would%20like%20to%20book%20an%20event."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[#F5F5F5]/70 hover:text-[#C6A75E] transition-colors duration-300"

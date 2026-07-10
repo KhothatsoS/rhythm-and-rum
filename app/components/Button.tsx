@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -40,7 +40,7 @@ export function Button({
   
   if (href) {
     return (
-      <Link to={href} className={classes}>
+      <Link href={href} className={classes}>
         {children}
       </Link>
     );

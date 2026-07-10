@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from 'react';
-import { useLocation } from 'react-router';
+import { usePathname } from 'next/navigation';
 
 interface SEOProps {
   title?: string;
@@ -12,7 +12,7 @@ const defaultTitle = 'Rhythm & Rum Co. - Where Jazz Meets the Pour';
 const defaultDescription = 'Premium cocktail service and live jazz performances for private events, weddings, and corporate functions. Elevate your event with Rhythm & Rum Co.';
 
 export function SEO({ title, description }: SEOProps) {
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     // Update page title
@@ -28,7 +28,7 @@ export function SEO({ title, description }: SEOProps) {
       meta.content = description || defaultDescription;
       document.head.appendChild(meta);
     }
-  }, [title, description, location]);
+  }, [title, description, pathname]);
 
   return null;
 }

@@ -1,8 +1,10 @@
+"use client";
+
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
-export function Navbar() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
@@ -10,7 +12,7 @@ export function Navbar() {
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'Book Now', path: '/booking' }
+    { name: 'Get In Touch', path: '/contact' }
   ];
 
   return (
@@ -18,7 +20,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <span className="text-2xl md:text-3xl font-serif text-[#C6A75E]" style={{ fontFamily: 'var(--font-serif)' }}>
               Rhythm & Rum Co.
             </span>
@@ -29,7 +31,7 @@ export function Navbar() {
             {navLinks.map((link) => (
               <Link
                 key={link.path}
-                to={link.path}
+                href={link.path}
                 className="text-[#F5F5F5] hover:text-[#C6A75E] transition-colors duration-300"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
@@ -54,7 +56,7 @@ export function Navbar() {
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
-                  to={link.path}
+                  href={link.path}
                   className="text-[#F5F5F5] hover:text-[#C6A75E] transition-colors duration-300 py-2"
                   style={{ fontFamily: 'var(--font-sans)' }}
                   onClick={() => setIsOpen(false)}
